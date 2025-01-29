@@ -1,9 +1,22 @@
-var express = require('express');
+var express = require("express");
 const router = express.Router();
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+
+router.get("/", (request, response, next) => {
+  let result = {
+    name: "advait",
+  };
+
+  result.age = 23;
+
+  if (result.age > 20) {
+    result.isAdult = true;
+  } else {
+    result.isAdult = false;
+  }
+
+  response.send(result)
 });
 
 module.exports = router;
